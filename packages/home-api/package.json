@@ -1,0 +1,10 @@
+{
+  "name": "@app/home-api",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {},
+  "dependencies": {
+    "@supabase/supabase-js": "^2.21.0"
+  }
+}
