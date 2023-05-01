@@ -11,6 +11,7 @@ yarn-error.log*
 pnpm-debug.log*
 
 # Editor directories and files
+.hbuilderx
 .idea
 .vscode
 *.suo
@@ -26,5 +27,7 @@ node_modules
 dist
 
 # client
+auto-imports.d.ts
+components.d.ts
 
 # server

@@ -1,0 +1,23 @@
+{
+  "easycom": {
+    "autoscan": true,
+    "custom": {
+    }
+  },
+  "pages": [
+    {
+      "path": "pages/index/index"
+    },
+    {
+      "path": "pages/test/index"
+    }
+  ],
+  "globalStyle": {
+    "rpxCalcMaxDeviceWidth": "480",
+    "navigationStyle": "custom",
+    "navigationBarTextStyle": "black",
+    "navigationBarTitleText": "",
+    "navigationBarBackgroundColor": "#F8F8F8",
+    "backgroundColor": "#F8F8F8"
+  }
+}

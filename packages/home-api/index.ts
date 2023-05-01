@@ -1,12 +1,7 @@
 import Fastify, { FastifyReply, FastifyRequest } from 'fastify'
 import FastifyStatic from '@fastify/static'
 import config from './config'
-import { $ApiInfo } from './api/base'
-import getApi from './fixApi'
 import { resolve } from 'node:path'
-import connectDB from './connectDB'
-
-connectDB()
 
 const app = Fastify({
   logger: false,
@@ -57,53 +52,7 @@ app.all(
     }>,
     reply: FastifyReply,
   ) {
-    const { apiName: api } = request.params
-    if (!api) {
-      reply.send('hello!')
-
-      // 假装未解析。。。
-      // reply.status(502).send('')
-      return
-    }
-
-    request.body = request.body || {}
-    const apiInfo = {
-      headers: {
-        cookie: request.headers.cookie,
-      },
-      method: request.method,
-      body: request.body,
-    } as $ApiInfo
-
-    const sendError = (reply) => {
-      reply.status(404).send(`${apiInfo.method}->${api}->${apiInfo.body.code} error!`)
-    }
-
-    getApi(api).then(
-      async (module) => {
-        const apiFunc = module[apiInfo.body.code]
-        if (typeof apiFunc !== 'function') {
-          sendError(reply)
-          return
-        }
-
-        const res = await apiFunc(<any>apiInfo).catch((err) => {
-          console.info(err.message)
-          return Promise.resolve(null)
-        })
-
-        if (!res) {
-          sendError(reply)
-          return
-        }
-
-        reply.status(res.code || 200).send(res)
-      },
-      (err) => {
-        console.info(err.message)
-        sendError(reply)
-      },
-    )
+    reply.send('hello!')
   },
 )
 
@@ -116,7 +65,5 @@ app.listen(
     if (err) throw err
 
     console.info(`server start http://localhost:${config.port}`)
-
-    // Server is now listening on ${address}
   },
 )

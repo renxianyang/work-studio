@@ -5,6 +5,5 @@
   "type": "module",
   "scripts": {},
   "dependencies": {
-    "@supabase/supabase-js": "^2.21.0"
   }
 }

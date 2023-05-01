@@ -22,7 +22,7 @@ if (!argv.app) {
 build()
 
 function build() {
-  const outputDir = `dist/${argv.app}`
+  const outputDir = `packages/${argv.app}/dist`
 
   // 清理文件
   try {

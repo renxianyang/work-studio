@@ -1,12 +1,9 @@
 {
   "compilerOptions": {
-    "baseUrl": ".",
-    "rootDir": "./",
-    "outDir": "./dist",
     "target": "esnext",
     "module": "esnext",
     "moduleResolution": "node",
-    "strict": false,
+    "strict": true,
     "allowJs": true,
     "jsx": "preserve",
     "sourceMap": true,
@@ -22,13 +19,5 @@
       "esnext",
       "dom"
     ]
-  },
-  "include": [
-    "packages/**/*.ts",
-    "types/**/*.ts"
-  ],
-  "exclude": [
-    "node_modules",
-    "dist"
-  ]
+  }
 }
