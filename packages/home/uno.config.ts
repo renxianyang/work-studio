@@ -3,10 +3,13 @@ import { defineConfig } from 'unocss'
 export default defineConfig({
   rules: [
     [
-      /^([mp])([trbl])-([\.\d]+)$/,
+      /^([mp])([atrbl])-([\.\d]+)$/,
       (match, context) => {
         let edge = ''
         switch (match[2]) {
+          case 'a':
+            edge = ''
+            break
           case 't':
             edge = 'top'
             break

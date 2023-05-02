@@ -9,7 +9,7 @@ $color-gray-6: #969799;
 $color-gray-7: #646566;
 $color-gray-8: #323233;
 
-$color-primary: #1C64FD; // 主色 
+$color-primary: #1C64FD; // 主色
 $color-primary-dark: mix($color-black, $color-primary, 10%) !default;
 $color-primary-light: mix($color-white, $color-primary, 20%) !default;
 $color-primary-lighter: mix($color-white, $color-primary, 50%) !default;

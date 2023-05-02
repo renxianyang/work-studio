@@ -6,14 +6,20 @@
   },
   "pages": [
     {
-      "path": "pages/index/index"
+      "path": "pages/index/index",
+      "app-meta": {}
     },
     {
-      "path": "pages/test/index"
+      "path": "pages/ui/index",
+      "app-meta": {}
+    },
+    {
+      "path": "pages/test/index",
+      "app-meta": {}
     }
   ],
   "globalStyle": {
-    "rpxCalcMaxDeviceWidth": "480",
+    "rpxCalcMaxDeviceWidth": "0",
     "navigationStyle": "custom",
     "navigationBarTextStyle": "black",
     "navigationBarTitleText": "",

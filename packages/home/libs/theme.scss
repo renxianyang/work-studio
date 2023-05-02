@@ -1,0 +1,39 @@
+.hd-button{
+  line-height: 1;
+
+  // 加权
+  &.hd-button{
+    &--roundsquare{
+      border-radius: 8rpx;
+
+      &:after{
+        display: none;
+      }
+    }
+
+    &--mini{
+      height: 48rpx;
+      padding: 0 10rpx;
+      border-radius: 4rpx;
+    }
+
+    &--small{
+      height: 56rpx;
+      padding:0 15rpx;
+      font-size: 26rpx;
+    }
+
+    &--normal{
+      height: 64rpx;
+      padding:0 20rpx;
+      font-size: 30rpx;
+    }
+
+    &--large{
+      width: auto;
+      height: 74rpx;
+      padding: 0 20rpx;
+      font-size: 34rpx;
+    }
+  }
+}
