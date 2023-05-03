@@ -1,9 +1,10 @@
 import { defineConfig, PluginOption } from 'vite'
 import { resolve } from 'node:path'
-import uni from '@dcloudio/vite-plugin-uni'
+import vue from '@vitejs/plugin-vue'
 import UnoCSS from 'unocss/vite'
 import AutoImport from 'unplugin-auto-import/vite'
 import AutoImportComponents from 'unplugin-vue-components/vite'
+import { ArcoResolver } from 'unplugin-vue-components/resolvers'
 
 // https://vitejs.dev/config/
 export default defineConfig(() => {
@@ -20,33 +21,35 @@ export default defineConfig(() => {
     // },
     build: {
       // target: 'chrome86',
-      outDir: resolve('./dist/home'),
     },
     resolve: {
       alias: {
-        '~': resolve('./'),
         '@': resolve('./src'),
       },
     },
     plugins: [
       // fixRpxPlugin,
       AutoImport({
-        imports: ['vue'],
+        imports: ['vue', 'vue-router'],
+        resolvers: [ArcoResolver()],
       }),
       AutoImportComponents({
         resolvers: [
-          (name: string) => {
-            if (!name.match(/^Hd[A-Z]/)) return
-            const partialName = kebabCase(name)
-
-            return resolve(
-              `libs/fant-mini-plus/components/${partialName}/${partialName}.vue`,
-            ).replaceAll('\\', '/')
-          },
+          ArcoResolver({
+            sideEffect: true,
+          }),
+          // (name: string) => {
+          //   if (!name.match(/^Hd[A-Z]/)) return
+          //   const partialName = kebabCase(name)
+          //
+          //   return resolve(
+          //     `libs/fant-mini-plus/components/${partialName}/${partialName}.vue`,
+          //   ).replaceAll('\\', '/')
+          // },
         ],
       }),
       UnoCSS({ hmrTopLevelAwait: false, presets: [] }),
-      uni(),
+      vue(),
     ],
   }
 })
@@ -56,6 +59,7 @@ function kebabCase(key: string) {
   return result.split(' ').join('-').toLowerCase()
 }
 
+// uniapp
 const fixRpxPlugin: PluginOption = {
   name: 'fixRpxPlugin',
   enforce: 'pre',

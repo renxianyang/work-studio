@@ -1,15 +1,31 @@
 <template>
-  <BasePageLayout>
-    <view class="app-layout-block">ui</view>
-
-    <input v-model="input1" placeholder="请输入密码" />
-  </BasePageLayout>
+  <div class="page-index layout-container-1200">
+    <div class="left">
+      <div class="layout-block">
+        <div style="width: 200px; height: 200px"></div>
+      </div>
+    </div>
+    <div class="center">
+      <div class="layout-block">
+        <div style="width: 200px; height: 500px"></div>
+      </div>
+    </div>
+  </div>
 </template>
 
-<script lang="ts" setup>
-import BasePageLayout from '@/common/layouts/BasePageLayout/index.vue'
+<script lang="ts" setup></script>
 
-const input1 = ref('')
-</script>
+<style lang="scss" scoped>
+.page-index {
+  display: flex;
 
-<style lang="scss" scoped></style>
+  .left {
+    flex: 0 0 auto;
+    margin-right: 20px;
+  }
+
+  .center {
+    flex: 1;
+  }
+}
+</style>

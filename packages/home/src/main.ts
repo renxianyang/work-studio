@@ -1,14 +1,23 @@
-import { createSSRApp } from 'vue'
-import App from './App.vue'
-import 'virtual:uno.css'
-import fantUI from '../libs/fant-mini-plus'
+import createApp from './createApp'
+import config from './config'
 
-export function createApp() {
-  const app = createSSRApp(App)
-  app.config.warnHandler = () => null
-  app.use(fantUI)
-
-  return {
-    app,
+if (!config.dev) {
+  const registerServiceWorker = () => {
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker
+          .register('/sw.js', {
+            scope: '/',
+          })
+          .then(() => {
+            console.info(`service worker is working`)
+          })
+      })
+    }
   }
+
+  registerServiceWorker()
 }
+
+const app = createApp()
+app.mount('#app')

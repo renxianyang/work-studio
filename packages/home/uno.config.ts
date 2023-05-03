@@ -25,7 +25,7 @@ export default defineConfig({
         }
 
         return {
-          [`${match[1] === 'm' ? 'margin' : 'padding'}${edge ? '-' + edge : ''}`]: `${match[3]}rpx`,
+          [`${match[1] === 'm' ? 'margin' : 'padding'}${edge ? '-' + edge : ''}`]: `${match[3]}px`,
         }
       },
     ],
