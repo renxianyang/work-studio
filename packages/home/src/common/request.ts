@@ -52,3 +52,7 @@ export function CREATE_CLIENT_API(moduleName: string) {
     },
   )
 }
+
+
+// @ts-ignore
+window.CREATE_CLIENT_API = CREATE_CLIENT_API;

@@ -9,11 +9,17 @@ const table = z.object({
 
 // 数据模型
 export class UserInfoModel extends Entity(
-  table.pick({
-    favContentType: true,
-  }),
+  table
+    .pick({
+      favContentType: true,
+    })
+    .extend({
+      avatar: z.string().default(''),
+    }),
 ) {
-  get avatar() {
-    return '/vite.svg'
+  avatar = '11.png'
+
+  sex() {
+    return '男'
   }
 }

@@ -18,6 +18,17 @@ import AsideMenu from './AsideMenu.vue'
 import { inject } from 'vue'
 
 const pageLayoutElement = inject<HTMLElement>('pageLayoutElement')
+
+import UserApi from '@app/home-server/src/api/user'
+import { userInfoState } from '@/state'
+import { UserInfoModel } from '@app/home-model/user'
+
+Object.assign(
+  userInfoState,
+  await UserApi.getUserInfo(new UserInfoModel({ avatar: '11', favContentType: '1' })),
+)
+
+console.log(userInfoState.sex())
 </script>
 
 <style lang="scss" scoped>

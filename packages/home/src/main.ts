@@ -1,5 +1,8 @@
-import createApp from './createApp'
 import config from './config'
+import '@/common/request'
+
+// 放在最后
+import createApp from './createApp'
 
 if (!config.dev) {
   const registerServiceWorker = () => {

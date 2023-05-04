@@ -9,6 +9,7 @@
     "code-check": "vue-tsc --noEmit"
   },
   "dependencies": {
+    "@app/home-model": "workspace:^0.0.0",
     "@app/home-server": "workspace:^0.0.0",
     "@arco-design/web-vue": "^2.45.3",
     "@vue/runtime-core": "^3.2.47",

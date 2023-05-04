@@ -4,7 +4,7 @@ import FastifyStatic from '@fastify/static'
 import FastifyMultipart from '@fastify/multipart'
 import FastifyCors from '@fastify/cors'
 import { resolve } from 'node:path'
-import './routes'
+import regApi from './regApi'
 
 // 跨域
 app.register(FastifyCors)
@@ -58,6 +58,9 @@ app.addHook('onTimeout', (request, reply, done) => {
 
   done()
 })
+
+// api
+regApi(app)
 
 // server
 app.listen(

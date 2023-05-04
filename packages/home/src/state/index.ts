@@ -1,3 +1,3 @@
-import { UserInfoModel } from '@app/home-server/src/model/user.modal'
+import { UserInfoModel } from '@app/home-model/user'
 
 export const userInfoState = reactive<UserInfoModel>(new UserInfoModel({}))

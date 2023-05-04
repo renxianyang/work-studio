@@ -6,9 +6,7 @@
     "start:home-server": "node packages/home-server/dist/index.mjs",
     "~~~~~~~~~~~~": "~~~~~~~~~~~~",
     "dev:home": "cd packages/home && npm run dev",
-    "build:home": "cd packages/home && npm run build",
-    "~~~~~~~~~~~~": "~~~~~~~~~~~~",
-    "home-test": "cd packages/home-test && tsx index.ts"
+    "build:home": "cd packages/home && npm run build"
   },
   "dependencies": {
     "@fastify/cors": "^8.2.1",

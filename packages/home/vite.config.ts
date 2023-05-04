@@ -30,7 +30,7 @@ export default defineConfig(() => {
     },
     plugins: [
       // fixRpxPlugin,
-      // fixApiPlugin,
+      fixApiPlugin,
       AutoImport({
         imports: ['vue', 'vue-router'],
         resolvers: [
