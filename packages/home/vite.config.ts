@@ -9,16 +9,17 @@ import { ArcoResolver } from 'unplugin-vue-components/resolvers'
 // https://vitejs.dev/config/
 export default defineConfig(() => {
   return {
-    // server: {
-    //   port: 3000,
-    //   proxy: {
-    //     '/api': {
-    //       target: 'http://127.0.0.1:3001/api',
-    //       changeOrigin: true,
-    //       rewrite: (path) => path.replace(/^\/api/, ''),
-    //     },
-    //   },
-    // },
+    server: {
+      host: '0.0.0.0',
+      // port: 3000,
+      // proxy: {
+      //   '/api': {
+      //     target: 'http://127.0.0.1:3001/api',
+      //     changeOrigin: true,
+      //     rewrite: (path) => path.replace(/^\/api/, ''),
+      //   },
+      // },
+    },
     build: {
       // target: 'chrome86',
     },
@@ -29,9 +30,18 @@ export default defineConfig(() => {
     },
     plugins: [
       // fixRpxPlugin,
+      // fixApiPlugin,
       AutoImport({
         imports: ['vue', 'vue-router'],
-        resolvers: [ArcoResolver()],
+        resolvers: [
+          ArcoResolver(),
+          // {
+          //   type: 'component',
+          //   resolve: (name: string) => {
+          //     console.log(name)
+          //   },
+          // },
+        ],
       }),
       AutoImportComponents({
         resolvers: [
@@ -65,5 +75,19 @@ const fixRpxPlugin: PluginOption = {
   enforce: 'pre',
   transform(code: string, id: string, options) {
     return code.replace(/(\d)\srpx/g, '$1rpx')
+  },
+}
+
+// api
+const fixApiPlugin: PluginOption = {
+  name: 'fixApiPlugin',
+  enforce: 'pre',
+  transform(code: string, id: string, options) {
+    const apiRegex = /home-server\/src\/api\/(.*?).ts$/
+    if (!apiRegex.test(id)) return
+    // @ts-ignore
+    let moduleName = id.match(apiRegex)[1]
+
+    return `export default window.CREATE_CLIENT_API('${moduleName}')`
   },
 }

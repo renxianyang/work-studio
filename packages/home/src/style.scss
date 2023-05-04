@@ -1,3 +1,9 @@
+//
+html {
+  --app-shadow-1: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}
+
+//
 .layout-container-1366 {
   margin: auto;
   width: 100%;
@@ -14,4 +20,9 @@
   padding: 8px;
   background: #fff;
   border-radius: 4px;
+}
+
+// 颜色等级
+.text-color-1 {
+  color: #999;
 }

@@ -1,0 +1,10 @@
+{
+  "name": "@app/home-test",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {},
+  "dependencies": {
+    "@app/home-server": "workspace:^0.0.0"
+  }
+}

@@ -1,7 +1,7 @@
 import { RouteRecordRaw } from 'vue-router'
 /* layout 无需异步加载，减少请求 */
-import EmptyLayout from '@/pages/.layouts/Empty.vue'
-import BaseLayout from '@/pages/.layouts/Base/index.vue'
+import EmptyLayout from '@/layouts/Empty.vue'
+import BaseLayout from '@/layouts/Base/index.vue'
 
 const viewDirPath = `../../pages`
 const pages: any = import.meta.glob(`../../pages/**/**.vue`)
@@ -21,6 +21,11 @@ const routes: RouteRecordRaw[] = [
       {
         path: '',
         component: importPage('index/index'),
+        meta: {},
+      },
+      {
+        path: '/user',
+        component: importPage('user/index'),
         meta: {},
       },
     ],

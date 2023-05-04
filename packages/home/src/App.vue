@@ -1,24 +1,18 @@
 <template>
   <a-config-provider size="small">
-    <router-view />
+    <Suspense>
+      <router-view />
+    </Suspense>
   </a-config-provider>
 </template>
 
 <script lang="ts" setup></script>
 
 <style lang="scss">
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-  word-break: break-all;
-}
+@import './common/style/reset.scss';
 
-html,
-body,
 #app {
-  width: 100%;
-  height: 100%;
+  min-width: 320px;
 }
 
 @import './style.scss';

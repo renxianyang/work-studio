@@ -32,7 +32,7 @@ function build() {
   try {
     // format esm 的坑 - https://github.com/evanw/esbuild/pull/2067
     const buildOptions = {
-      entryPoints: [`packages/${argv.app}/index.ts`],
+      entryPoints: [`packages/${argv.app}/src/index.ts`],
       outfile: `${outputDir}/index.mjs`,
       format: 'esm', // esm
       target: 'esnext',

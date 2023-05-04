@@ -1,31 +1,49 @@
 <template>
   <div class="page-index layout-container-1200">
-    <div class="left">
-      <div class="layout-block">
-        <div style="width: 200px; height: 200px"></div>
-      </div>
+    <div class="left mr-10">
+      <a-affix :target="pageLayoutElement" :offsetTop="60">
+        <AsideMenu class="aside-menu" />
+      </a-affix>
     </div>
     <div class="center">
       <div class="layout-block">
-        <div style="width: 200px; height: 500px"></div>
+        <div style="height: 1500px"></div>
       </div>
     </div>
   </div>
 </template>
 
-<script lang="ts" setup></script>
+<script lang="ts" setup>
+import AsideMenu from './AsideMenu.vue'
+import { inject } from 'vue'
+
+const pageLayoutElement = inject<HTMLElement>('pageLayoutElement')
+</script>
 
 <style lang="scss" scoped>
 .page-index {
+  position: relative;
   display: flex;
 
   .left {
     flex: 0 0 auto;
-    margin-right: 20px;
+    min-width: 48px;
   }
 
   .center {
     flex: 1;
   }
 }
+
+//@media screen and (max-width: 768px) {
+//  :deep(.aside-menu) {
+//    position: absolute;
+//
+//    .arco-menu {
+//      &:not(.arco-menu-collapsed) {
+//        box-shadow: var(--app-shadow-1);
+//      }
+//    }
+//  }
+//}
 </style>
